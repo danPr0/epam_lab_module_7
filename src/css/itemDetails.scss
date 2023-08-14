@@ -1,0 +1,78 @@
+@import "elements/root";
+@import "elements/header";
+
+main {
+  margin: 2rem 0;
+
+  .item-details {
+    display: grid;
+    grid-template-columns: 65% 25%;
+    justify-content: space-evenly;
+
+    .section-1 > img{
+      margin-bottom: 1rem;
+      width: 100%;
+      height: 25rem;
+      object-fit: cover;
+    }
+
+    .section-2 {
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      height: 25rem;
+      padding: 1rem;
+      background-color: white;
+
+      h1 {
+        margin-top: 0;
+        font-weight: 900;
+      }
+
+      .description {
+        flex-grow: 1;
+        margin-top: 0;
+      }
+
+      .time-left {
+        margin: 0 0 2rem;
+
+        &__label {
+          color: #828282;
+          font-size: 0.8rem;
+        }
+
+        &__value {
+          font-weight: bold;
+        }
+      }
+
+      .purchase {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0;
+
+        &__price {
+          font-weight: 900;
+          font-size: 1.25rem;
+        }
+
+        &__button{
+          display: flex;
+          align-items: center;
+          border-width: 0;
+          background-color: white;
+          cursor: pointer;
+          font-size: 1rem;
+          font-weight: bold;
+
+          &__text {
+            margin-right: 0.5rem;
+            color: cornflowerblue;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+@import "elements/root";
+@import "elements/header";
+
+main {
+  position: absolute;
+  bottom: 3rem; left: 0; right: 0;
+  margin: auto;
+  width: 70%;
+
+  h1 {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 5rem;
+    padding: 0 2rem 0;
+    background-color: #bdbdbd;
+    color: white;
+    font-size: 1.5rem;
+  }
+
+  form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2rem;
+    row-gap: 1rem;
+    justify-content: space-between;
+    justify-items: stretch;
+    padding: 1rem 2rem 2rem;
+    background-color: white;
+
+    label {
+      font-size: 0.75rem;
+
+      .input {
+        @import "elements/formInput";
+        display: block;
+        margin-top: 0.25rem;
+        box-sizing: border-box;
+        width: 100%;
+      }
+    }
+
+    .form-actions {
+      grid-column: 2 / -1;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1rem;
+
+      > * {
+        width: 47.5%;
+        height: 2.5rem;
+        font-weight: bold;
+      }
+
+      &__cancel {
+        @import "elements/secondaryLink";
+        font-size: inherit;
+      }
+
+      &__submit {
+        @import "elements/primaryInputSubmit";
+        font-size: inherit;
+      }
+    }
+  }
+}

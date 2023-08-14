@@ -1,0 +1,128 @@
+@import "elements/root";
+@import "elements/header";
+
+body {
+  background-color: white;
+}
+
+main {
+  width: 100%;
+
+  h1 {
+    @import "elements/classicHeader";
+  }
+
+  form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 7rem;
+    row-gap: 1rem;
+    justify-content: space-between;
+    justify-items: stretch;
+    margin: 2rem 10rem;
+    background-color: white;
+
+    label {
+      font-size: 0.75rem;
+
+      .input {
+        @import "elements/formInput";
+        display: block;
+        margin-top: 0.25rem;
+        box-sizing: border-box;
+        width: 100%;
+
+        &[type="datetime-local"]::-webkit-calendar-picker-indicator {
+          width: 1.5rem;
+          height: 1.5rem;
+          padding: 0;
+          background: url(../img/event_black_24dp.svg) center no-repeat;
+          background-size: 1.5rem;
+        }
+      }
+    }
+
+    .item-name {
+      grid-column: 2 / -1;
+      grid-row: 1 / 2;
+    }
+
+    .textarea {
+      resize: none;
+    }
+
+    .short-description {
+      grid-column: 2 / -1;
+      grid-row: 2 / 4;
+      display: flex;
+      flex-direction: column;
+
+      .input {
+        height: 100%;
+      }
+    }
+
+    .long-description {
+      grid-column: 2 / -1;
+      grid-row: 4 / 6;
+      display: flex;
+      flex-direction: column;
+
+      .input {
+        height: 100%;
+      }
+    }
+
+    .category-select {
+      appearance: none;
+      background: url(../img/expand_more_black_24dp.svg) no-repeat center right 0.75rem;
+      background-size: 2rem;
+    }
+
+    .images {
+      position: relative;
+
+      &__input {
+        background: url(../img/collections_black_24dp.svg) no-repeat center right 1rem;
+        background-size: 1.5rem;
+        cursor: pointer;
+        color: transparent;
+      }
+
+      &__input::-webkit-file-upload-button  {
+        visibility: hidden;
+      }
+
+      &__filenames {
+        position: absolute;
+        bottom: 0.75rem;
+        left: 1rem;
+        font-size: 1rem;
+      }
+    }
+
+    .form-actions {
+      grid-column: 2 / -1;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1rem;
+
+      > * {
+        width: 47.5%;
+        height: 2.5rem;
+        font-weight: bold;
+      }
+
+      &__back {
+        @import "elements/secondaryLink";
+        cursor: pointer;
+        font-size: inherit;
+      }
+
+      &__save {
+        @import "elements/primaryInputSubmit";
+        font-size: inherit;
+      }
+    }
+  }
+}

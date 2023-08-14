@@ -1,0 +1,50 @@
+@import "elements/root.css";
+@import "elements/header.css";
+
+main {
+  margin: 0 auto;
+  width: 30%;
+
+  h1 {
+    position: relative;
+    top: 7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    border-radius: 50%;
+    width: 13rem;
+    height: 13rem;
+    background-color: #c4c4c4;
+    font-size: 300%;
+    color: white;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #e2e2e2;
+    padding: 8rem 4rem 4rem;
+    background-color: #fcfcfc;
+
+    > * {
+      height: 2.5rem;
+      font-size: 1.2rem;
+    }
+
+    .input {
+      margin-bottom: 0.5rem;
+      border: 1px solid #efefef;
+      background-color: white;
+      text-align: center;
+    }
+
+    .input::placeholder {
+      color: #bfbfbf;
+    }
+
+    .submit {
+      @import "elements/primaryInputSubmit";
+    }
+  }
+}

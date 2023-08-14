@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New Item</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../css/addNewItem.css">
+
+    <script type="text/javascript" src="../js/addNewItem.js"></script>
+</head>
+<body>
+<header>
+    <div>
+        <a class="dropdown-menu" href="#"><span class="material-icons dropdown">menu</span></a>
+        <a class="logo" href="mainPage.html">Logo</a>
+    </div>
+
+    <div class="filter">
+        <input class="filter__input" placeholder="Search by item name">
+        <div class="filter__select">
+            <span class="filter__select__chosen-option">All Categories</span>
+            <span class="material-icons">expand_more</span>
+            <ul class="filter__select__options">
+                <li>All Categories</li>
+                <li>Sport</li>
+                <li>Health</li>
+                <li>Sightseeing</li>
+                <li>Others</li>
+            </ul>
+        </div>
+    </div>
+
+    <div>
+        <a href="#"><span class="material-icons">favorite_border</span></a>
+        <a href="checkout.html"><span class="material-icons">shopping_cart</span></a>
+
+        <a class="login" href="login.html">Login</a>
+        <a class="signup" href="register.html">Sign Up</a>
+    </div>
+</header>
+<main>
+    <h1>Add New Coupon</h1>
+    <form class="add-coupon-form" action="#" method="post">
+        <label class="item-name">
+            <span>Item Name</span>
+            <input class="input" type="text" name="name">
+        </label>
+        <label class="short-description">
+            <span>Short Description</span>
+            <textarea class="input textarea" name="shortDescription"></textarea>
+        </label>
+        <label class="long-description">
+            <span>Long Description</span>
+            <textarea class="input textarea" name="longDescription"></textarea>
+        </label>
+        <label>
+            <span>Company</span>
+            <input class="input" type="text" name="company">
+        </label>
+        <label>
+            <span>Category</span>
+            <select class="input category-select" name="category">
+                <option hidden selected value="">Choose category</option>
+                <option>Sport</option>
+                <option>Health</option>
+                <option>Sightseeing</option>
+                <option>Others</option>
+            </select>
+        </label>
+        <label>
+            <span>Valid To</span>
+            <input class="input datetime-picker" type="datetime-local" name="expiryDate">
+        </label>
+        <label>
+            <span>Price</span>
+            <input class="input" type="text" name="price">
+        </label>
+        <label class="images">
+            <span>Images</span>
+            <input class="input images__input" type="file" accept=".jpg, .png" multiple name="images">
+            <span class="images__filenames"></span>
+        </label>
+        <div class="form-actions">
+            <a class="form-actions__back" href="#">Back</a>
+            <input class="form-actions__save" type="submit" value="Save">
+        </div>
+    </form>
+</main>
+</body>
+</html>

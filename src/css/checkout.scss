@@ -1,0 +1,113 @@
+@import "elements/root";
+@import "elements/header";
+
+main {
+  h1 {
+    @import "elements/classicHeader";
+    padding: 0 15rem !important;
+  }
+
+  .checkout-container {
+    margin: 2rem 15rem;
+
+    .coupon-list {
+      display: flex;
+      flex-direction: column;
+
+      .coupon-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+
+        img {
+          width: 15%;
+          height: 6rem;
+          object-fit: cover;
+        }
+
+        article {
+          width: 70%;
+
+          h2 {
+            margin: 0;
+
+            a {
+              text-decoration: none;
+              color: inherit;
+
+              &:visited {
+                color: inherit;
+              }
+            }
+          }
+
+          p {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            word-wrap: break-word;
+            overflow: hidden;
+            margin-bottom: 0;
+            width: 75%;
+          }
+        }
+
+        .price {
+          width: 10%;
+          font-size: 1.5rem;
+          font-weight: bold;
+          text-align: center;
+        }
+      }
+    }
+
+    .separator {
+      height: 2px;
+      background: #d3d3d3;
+    }
+
+    .total {
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      margin: 3rem 0;
+      font-size: 1.5rem;
+      font-weight: bold;
+
+      &__label {
+        margin-right: 6rem;
+      }
+
+      &__value {
+        width: 10%;
+        text-align: center;
+      }
+    }
+
+    .checkout-actions {
+      display: flex;
+      justify-content: end;
+
+      > * {
+        width: 17.5%;
+        height: 2.5rem;
+      }
+
+      &__back {
+        @import "elements/secondaryLink";
+        margin-right: 1rem;
+      }
+
+      &__checkout {
+        @import "elements/primaryLink";
+      }
+    }
+  }
+
+  .empty-cart-message {
+    margin: 2rem 0;
+    font-size: 1.25rem;
+    text-align: center;
+  }
+}
