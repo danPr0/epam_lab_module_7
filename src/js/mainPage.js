@@ -1,12 +1,15 @@
-// import _ from "https://cdn.jsdelivr.net/npm/lodash@4.17.21/+esm";
-import _ from "lodash";
-import addItemToCart from "./addItemToCart.js";
+// import _ from 'https://cdn.jsdelivr.net/npm/lodash@4.17.21/+esm';
+import _ from 'lodash'
+import addItemToCart from './addItemToCart.js'
 
-
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
 
     scrollRestoration()
-    while (document.documentElement.scrollHeight <= window.innerHeight && addCoupons()) {}
+    while (document.documentElement.scrollHeight <= window.innerHeight) {
+        if (!addCoupons()) {
+            break
+        }
+    }
     filteringCoupons()
     loadingMoreData()
 
@@ -25,9 +28,8 @@ function addCoupons(enableAnimation = true) {
 
     const root = document.getElementsByClassName('coupons__container')[0]
     const coupons = JSON.parse(localStorage.getItem('coupons'))
-        .filter(c => (category === 'All Categories' || c.category === category)
-            && c.name.toLowerCase().indexOf(namePart.toLowerCase()) !== -1)
-        .slice(root.children.length, root.children.length + couponsToAdd)
+    .filter(c => (category === 'All Categories' || c.category === category) && c.name.toLowerCase().indexOf(namePart.toLowerCase()) !== -1)
+    .slice(root.children.length, root.children.length + couponsToAdd)
     if (coupons.length === 0) {
         return false
     }
@@ -49,7 +51,7 @@ function addCoupons(enableAnimation = true) {
                     <span class="description">${coupon.shortDescription}</span>
                     <span class="validity">Expires ${fullDaysToExpire === 0 ? 'today' : `in ${fullDaysToExpire} days`}</span>
                     <div class="separator"></div>   
-                    <span class="price">${coupon.price}</span>
+                    <span class="price">$${coupon.price}</span>
                     <button class="add-to-cart-button">Add to cart</button>
                 </div>`
             element.setAttribute('data-category', coupon.category)
@@ -78,7 +80,11 @@ function filteringCoupons() {
     function filter() {
         const coupons = document.getElementsByClassName('coupons__container')[0]
         coupons.innerHTML = ''
-        while (document.documentElement.scrollHeight <= window.innerHeight && addCoupons()) {}
+        while (document.documentElement.scrollHeight <= window.innerHeight) {
+            if (!addCoupons()) {
+                break
+            }
+        }
     }
 
     let inputFilterTimer
@@ -109,7 +115,9 @@ function loadingMoreData() {
     window.addEventListener('scroll', _.throttle(() => {
         if (document.documentElement.scrollHeight - window.scrollY - window.innerHeight <= 1) {
             const loadingGif = document.getElementsByClassName('loading-gif')[0]
-            setTimeout(() => loadingGif.style.visibility = 'visible', 500)
+            setTimeout(() => {
+                loadingGif.style.visibility = 'visible'
+            }, 500)
             setTimeout(() => {
                 loadingGif.style.visibility = 'hidden'
                 addCoupons()
@@ -122,11 +130,14 @@ function scrollRestoration() {
 
     window.history.scrollRestoration = 'manual'
     window.addEventListener('scroll', () => {
-        localStorage.setItem('lastScrollHeight', window.scrollY.toString())
+        sessionStorage.setItem('lastScrollHeight', window.scrollY.toString())
     })
 
-    const scrollYTo = parseInt(localStorage.getItem('lastScrollHeight'))
-    while (document.documentElement.scrollHeight - scrollYTo - window.innerHeight < 0 && addCoupons(false)) {
+    const scrollYTo = parseInt(sessionStorage.getItem('lastScrollHeight'))
+    while (document.documentElement.scrollHeight - scrollYTo - window.innerHeight < 0) {
+        if (!addCoupons(false)) {
+            break
+        }
     }
     window.scrollTo(0, scrollYTo)
 }

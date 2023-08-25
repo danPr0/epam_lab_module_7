@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
 
     const checkoutContainer = document.getElementsByClassName('checkout-container')[0]
     const emptyCartMessage = document.getElementsByClassName('empty-cart-message')[0]
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <h2>
                         <a class="coupon-details-link" href="../html/itemDetails.html?couponName=${coupon.name}">${coupon.name}</a>
                     </h2>
-                    <p>fkljdklfjsdklfjsdklfjklsd fjsdklffk ljdklf jsdfsdfsdfs dfsdfsdfsdfsdf sdfsdfsdf sdsdklfjsdklfjkls dfjsd klfjsdkl fjsdjfsdklf jsdklfjsdklfjklsdfjks dfjlsdfjsdklfjsdkljk fkljdklfjsdkl fjsdklfjkl sdfjsdklfjsdklfjsdjfsd klfjsdklfjsdklfj klsdfjksdfjlsdfjsdklfjsdkljkjsdklfjsdjfsdklfjsdklfjsdklfjklsdfjksdfjlsdfjsdklfjsdkljk</p>
+                    <p>${coupon.shortDescription}</p>
                 </article>
                 <p class="price">$${coupon.price}</p>`
 

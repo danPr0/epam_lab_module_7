@@ -7,16 +7,16 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="../css/checkout.css">
 
-    <script type="text/javascript" src="../js/checkout.js"></script>
+    <script src="../js/checkout.js"></script>
 </head>
 <body>
 <header>
-    <div>
+    <nav>
         <a class="dropdown-menu" href="#"><span class="material-icons dropdown">menu</span></a>
         <a class="logo" href="mainPage.html">Logo</a>
-    </div>
+    </nav>
 
-    <div class="filter">
+    <nav class="filter">
         <input class="filter__input" placeholder="Search by item name">
         <div class="filter__select">
             <span class="filter__select__chosen-option">All Categories</span>
@@ -29,15 +29,15 @@
                 <li>Others</li>
             </ul>
         </div>
-    </div>
+    </nav>
 
-    <div>
+    <nav>
         <a href="#"><span class="material-icons">favorite_border</span></a>
         <a href="checkout.html"><span class="material-icons">shopping_cart</span></a>
 
         <a class="login" href="login.html">Login</a>
         <a class="signup" href="register.html">Sign Up</a>
-    </div>
+    </nav>
 </header>
 <main>
     <h1>Checkout</h1>
@@ -49,7 +49,7 @@
             <span class="total__value"></span>
         </p>
         <div class="checkout-actions">
-            <a class="checkout-actions__back" href="#">Back</a>
+            <a class="checkout-actions__back" href="javascript:history.back()">Back</a>
             <a class="checkout-actions__checkout" href="#">Checkout</a>
         </div>
     </div>

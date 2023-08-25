@@ -1,6 +1,6 @@
-import addItemToCart from "./addItemToCart.js";
+import addItemToCart from './addItemToCart.js'
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
 
     const couponName = new URL(window.location.href).searchParams.get('couponName')
     const coupon = JSON.parse(localStorage.getItem('coupons')).filter(c => c.name === couponName)[0]

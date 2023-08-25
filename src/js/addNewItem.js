@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
     processFormSubmit()
     showFileNamesOnInput()
 })
@@ -19,7 +19,7 @@ function processFormSubmit() {
             throw `Coupon with name "${couponName}" already exists.`
         }
 
-        const files = document.getElementsByClassName('image-input')[0]
+        const files = document.getElementsByClassName('images__input')[0]
         const reader = new FileReader()
         reader.readAsDataURL(files.files[0])
         reader.onload = () => {
