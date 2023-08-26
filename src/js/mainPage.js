@@ -28,8 +28,8 @@ function addCoupons(enableAnimation = true) {
 
     const root = document.getElementsByClassName('coupons__container')[0]
     const coupons = JSON.parse(localStorage.getItem('coupons'))
-    .filter(c => (category === 'All Categories' || c.category === category) && c.name.toLowerCase().indexOf(namePart.toLowerCase()) !== -1)
-    .slice(root.children.length, root.children.length + couponsToAdd)
+                        .filter(c => (category === 'All Categories' || c.category === category) && c.name.toLowerCase().indexOf(namePart.toLowerCase()) !== -1)
+                        .slice(root.children.length, root.children.length + couponsToAdd)
     if (coupons.length === 0) {
         return false
     }

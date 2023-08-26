@@ -44,23 +44,23 @@
     <form class="add-coupon-form" action="#" method="post">
         <label class="item-name">
             <span>Item Name</span>
-            <input class="input" type="text" name="name">
+            <input class="input" type="text" name="name" required>
         </label>
         <label class="short-description">
             <span>Short Description</span>
-            <textarea class="input textarea" name="shortDescription"></textarea>
+            <textarea class="input textarea" name="shortDescription" required></textarea>
         </label>
         <label class="long-description">
             <span>Long Description</span>
-            <textarea class="input textarea" name="longDescription"></textarea>
+            <textarea class="input textarea" name="longDescription" required></textarea>
         </label>
         <label>
             <span>Company</span>
-            <input class="input" type="text" name="company">
+            <input class="input" type="text" name="company" required>
         </label>
         <label>
             <span>Category</span>
-            <select class="input category-select" name="category">
+            <select class="input category-select" name="category" required>
                 <option hidden selected value="">Choose category</option>
                 <option>Sport</option>
                 <option>Health</option>
@@ -70,20 +70,20 @@
         </label>
         <label>
             <span>Valid To</span>
-            <input class="input datetime-picker" type="datetime-local" name="expiryDate">
+            <input class="input datetime-picker" type="datetime-local" name="expiryDate" required>
         </label>
         <label>
             <span>Price</span>
-            <input class="input" type="text" name="price">
+            <input class="input" type="text" name="price" required>
         </label>
         <label class="images">
             <span>Images</span>
-            <input class="input images__input" type="file" accept=".jpg, .png" multiple name="images">
+            <input class="input images__input" type="file" accept=".jpg, .png" multiple name="images" required>
             <span class="images__filenames"></span>
         </label>
         <div class="form-actions">
             <a class="form-actions__back" href="javascript:history.back()">Back</a>
-            <input class="form-actions__save" type="submit" value="Save">
+            <input class="form-actions__save" type="submit" value="Save" required>
         </div>
     </form> 
 </main>
