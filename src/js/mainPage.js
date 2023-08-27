@@ -5,13 +5,18 @@ import addItemToCart from './addItemToCart.js'
 document.addEventListener('DOMContentLoaded', () => {
 
     scrollRestoration()
-    while (document.documentElement.scrollHeight <= window.innerHeight) {
-        if (!addCoupons()) {
-            break
+    try {
+        while (document.documentElement.scrollHeight <= window.innerHeight) {
+            if (!addCoupons()) {
+                break
+            }
         }
+
+        filteringCoupons()
+        loadingMoreData()
+    } catch (e) {
+        console.log(e)
     }
-    filteringCoupons()
-    loadingMoreData()
 
     document.getElementsByClassName('back-to-top-button')[0].addEventListener('click', () => {
         window.scrollTo(0, 0)
@@ -27,8 +32,11 @@ function addCoupons(enableAnimation = true) {
     const namePart = document.getElementsByClassName('filter__input')[0].value
 
     const root = document.getElementsByClassName('coupons__container')[0]
+
     const coupons = JSON.parse(localStorage.getItem('coupons'))
-                        .filter(c => (category === 'All Categories' || c.category === category) && c.name.toLowerCase().indexOf(namePart.toLowerCase()) !== -1)
+                        .filter(c => (category === 'All Categories' || c.category === category)
+                            && c.name.toLowerCase().indexOf(namePart.toLowerCase()) !== -1
+                            && new Date(c.expiryDate) > new Date())
                         .slice(root.children.length, root.children.length + couponsToAdd)
     if (coupons.length === 0) {
         return false
@@ -36,10 +44,9 @@ function addCoupons(enableAnimation = true) {
 
     for (let coupon of coupons) {
         const fullDaysToExpire = Math.floor((new Date(coupon.expiryDate) - new Date()) / (1000 * 60 * 60 * 24))
-        if (fullDaysToExpire >= 0) {
-            const element = document.createElement('div')
-            element.className = 'coupon'
-            element.innerHTML = `
+        const element = document.createElement('div')
+        element.className = 'coupon'
+        element.innerHTML = `
                 <div class="coupon__image-container">
                     <img src="${coupon.imgUrl}" alt="coupon-image">
                 </div>
@@ -54,18 +61,17 @@ function addCoupons(enableAnimation = true) {
                     <span class="price">$${coupon.price}</span>
                     <button class="add-to-cart-button">Add to cart</button>
                 </div>`
-            element.setAttribute('data-category', coupon.category)
-            element.getElementsByClassName('add-to-cart-button')[0].onclick = () => addItemToCart(coupon.name)
+        element.setAttribute('data-category', coupon.category)
+        element.getElementsByClassName('add-to-cart-button')[0].onclick = () => addItemToCart(coupon.name)
 
-            if (enableAnimation) {
-                element.style.visibility = 'hidden'
-                setTimeout(() => {
-                    element.style.visibility = 'visible'
-                    element.classList.add('animated-appearance')
-                }, coupons.indexOf(coupon) * 250)
-            }
-            root.appendChild(element)
+        if (enableAnimation) {
+            element.style.visibility = 'hidden'
+            setTimeout(() => {
+                element.style.visibility = 'visible'
+                element.classList.add('animated-appearance')
+            }, coupons.indexOf(coupon) * 250)
         }
+        root.appendChild(element)
     }
 
     return true
