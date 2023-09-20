@@ -1,5 +1,5 @@
 ## General info
-UI for "Gift Certificates system".
+UI for [Gift Certificates system](https://github.com/danPr0/epam_lab_module_4).
 ## Illustrations
 <img width="959" alt="login" src="https://github.com/danPr0/gift_certificates_ui/assets/94548001/eebb8ad1-63f9-4dd4-a61d-8149fdbdee61">
 <img width="960" alt="register" src="https://github.com/danPr0/gift_certificates_ui/assets/94548001/0039dd61-a907-4da1-b070-d67947fa00fe">
