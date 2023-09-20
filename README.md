@@ -1,3 +1,7 @@
+## Table of contents
+* [General info](#general-info)
+* [Illustrations](#illustrations)
+* [Demonstration](#demonstration)
 ## General info
 UI for [Gift Certificates system](https://github.com/danPr0/epam_lab_module_4).
 ## Illustrations
